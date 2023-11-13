@@ -9,7 +9,7 @@ public class Sandbox : MonoBehaviour
     [SerializeField] private GameObject winText;
     [SerializeField] private GameObject loseText;
     [SerializeField] Timer timerScript;
-    private string winningCode = "BBRBBRG";
+    private string winningCode = "GBRBGBBRBBRBRGRBBRBRBBGRBG";
     public bool playerWin;
     public bool submitButtonClicked;
 
@@ -63,11 +63,11 @@ public class Sandbox : MonoBehaviour
         //Set winning code based on the minigame version
         if (sceneName.Contains("v1"))
         {
-            winningCode = "BBRBBRG";
+            winningCode = "GBRBGBBRBBRBRGRBBRBRBBGRBG";
         }
         else if (sceneName.Contains("v2"))
         {
-            winningCode = "BGRRGRBB";
+            winningCode = "BGRRGRRBRBBGRBGRBRGBGBRG";
         }
     }
     
