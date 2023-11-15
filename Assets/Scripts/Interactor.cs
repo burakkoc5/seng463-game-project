@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,13 @@ interface IInteractable
 
 public class Interactor : MonoBehaviour
 {
-    public Transform InteractorSource;
+    private Transform InteractorSource;
     public float InteractRange;
+
+    private void Start()
+    {
+        InteractorSource = GetComponent<Transform>();
+    }
 
     void Update()
     {
