@@ -30,12 +30,22 @@ public class Force : MonoBehaviour
         if (!stop)
         {
             int randomFruitIndex = _random.Next(0, fruits.Length);
-            GameObject currentFruit = Instantiate(fruits[randomFruitIndex], transform.position, Quaternion.identity);
-        
+
+            //Object Pooling Experiment
+            // switch (randomFruitIndex)
+            // {
+            //     case 0:
+            //         GameObject banana = ObjectPool.SharedInstance.GetPooledObject();
+            //         // if (banana != null) {
+            //         //     banana.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse);
+            //         // }
+            // }
+            
+            //GameObject currentFruit = Instantiate(fruits[randomFruitIndex], transform.position, Quaternion.identity);
             float randomForceX = (float) _random.NextDouble() * (maxForceX - minForceX) + minForceX;
             float randomForceY = (float) _random.NextDouble() * (maxForceY - minForceY) + minForceY;
             Vector3 forceAmount = new Vector3(randomForceX, randomForceY, 0);
-            currentFruit.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse);
+            //currentFruit.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse);
         
             float randomTimeBetweenFruits = _random.Next(1, 2);
             yield return new WaitForSeconds(randomTimeBetweenFruits);
