@@ -1,14 +1,27 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class ClickControl : MonoBehaviour
 {
-    private int eatenUnhealthyFruits = 0;
-    private int eatenHealthyFruits = 0;
     [SerializeField] private Force[] forceInstances;
+    [SerializeField] private TextMeshProUGUI eatenHealthyFruitsTMPUGUI;
+    [SerializeField] private TextMeshProUGUI eatenUnhealthyFruitsTMPUGUI;
     
+    private int eatenHealthyFruits = 0;
+    private int eatenUnhealthyFruits = 0;
+    private bool gameCondition = true; //false = lost, true = won/ongoing
+    
+
+    private void Start()
+    {
+        eatenHealthyFruitsTMPUGUI.text = eatenHealthyFruits.ToString();
+        eatenUnhealthyFruitsTMPUGUI.text = eatenUnhealthyFruits.ToString();
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameCondition)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -19,17 +32,20 @@ public class ClickControl : MonoBehaviour
                 {
                     Destroy(hit.transform.gameObject);
                     eatenHealthyFruits++;   
+                    eatenHealthyFruitsTMPUGUI.text = eatenHealthyFruits.ToString();
                 }
                 else if (hit.transform.gameObject.CompareTag("UnhealthyFruit"))
                 {
                     Destroy(hit.transform.gameObject);
                     eatenUnhealthyFruits++;
+                    eatenUnhealthyFruitsTMPUGUI.text = eatenUnhealthyFruits.ToString();
                 }
             }
         }
 
         if (eatenUnhealthyFruits >= 3)
         {
+            gameCondition = false;
             foreach (var forceInstance in forceInstances)
             {
                 forceInstance.stop = true;
