@@ -41,11 +41,11 @@ public class Force : MonoBehaviour
             //         // }
             // }
             
-            //GameObject currentFruit = Instantiate(fruits[randomFruitIndex], transform.position, Quaternion.identity);
+            GameObject currentFruit = Instantiate(fruits[randomFruitIndex], transform.position, Quaternion.identity);
             float randomForceX = (float) _random.NextDouble() * (maxForceX - minForceX) + minForceX;
             float randomForceY = (float) _random.NextDouble() * (maxForceY - minForceY) + minForceY;
             Vector3 forceAmount = new Vector3(randomForceX, randomForceY, 0);
-            //currentFruit.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse);
+            currentFruit.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse);
         
             float randomTimeBetweenFruits = _random.Next(1, 2);
             yield return new WaitForSeconds(randomTimeBetweenFruits);
