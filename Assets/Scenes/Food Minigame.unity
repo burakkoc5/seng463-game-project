@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &44302704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163180955}
-  - component: {fileID: 163180954}
+  - component: {fileID: 163180956}
   m_Layer: 0
   m_Name: Fruit Thrower 2
   m_TagString: Untagged
@@ -391,32 +391,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &163180954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163180953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a654e0c89c8fc4f87f722a5f2c7379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reverseDirection: 1
-  minForceX: 1.5
-  maxForceX: 3.5
-  minForceY: 5
-  maxForceY: 8
-  fruits:
-  - {fileID: 3002587691192703552, guid: 3a92e22a1efb4b94389317dfcfc4314c, type: 3}
-  - {fileID: 4103751467945807112, guid: 5fd7b34b33b85264cbd6da6ed26a1541, type: 3}
-  - {fileID: 3081660087699237626, guid: 73e8d71e8f9547a48ac8329afc01d14f, type: 3}
-  - {fileID: 3350281680065732549, guid: 51b50859ede86414d810f57ff92193b4, type: 3}
-  - {fileID: 6371896158331595886, guid: 6002f23b344c51c43af30a24fe409a17, type: 3}
-  - {fileID: 8765886867523111179, guid: c504b9b237a524044a4f2c5888927336, type: 3}
-  - {fileID: 5753083174899602337, guid: eeb323d74626d5342999d1d23ccf5884, type: 3}
-  stop: 0
 --- !u!4 &163180955
 Transform:
   m_ObjectHideFlags: 0
@@ -432,6 +406,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &163180956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163180953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c9d71473478564e9df39e27e0999bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reverseDirection: 1
+  minForceX: 1.5
+  maxForceX: 3.5
+  minForceY: 5
+  maxForceY: 8
+  fruits:
+  - {fileID: 5753083174899602337, guid: eeb323d74626d5342999d1d23ccf5884, type: 3}
+  - {fileID: 8765886867523111179, guid: c504b9b237a524044a4f2c5888927336, type: 3}
+  - {fileID: 3350281680065732549, guid: 51b50859ede86414d810f57ff92193b4, type: 3}
+  - {fileID: 6371896158331595886, guid: 6002f23b344c51c43af30a24fe409a17, type: 3}
+  - {fileID: 3081660087699237626, guid: 73e8d71e8f9547a48ac8329afc01d14f, type: 3}
+  - {fileID: 4103751467945807112, guid: 5fd7b34b33b85264cbd6da6ed26a1541, type: 3}
+  - {fileID: 3002587691192703552, guid: 3a92e22a1efb4b94389317dfcfc4314c, type: 3}
+  - {fileID: 3350281680065732549, guid: 51b50859ede86414d810f57ff92193b4, type: 3}
+  - {fileID: 6371896158331595886, guid: 6002f23b344c51c43af30a24fe409a17, type: 3}
+  stop: 0
 --- !u!1 &305804367
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,12 +475,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 305804367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4eba90f694688147931334dd70394c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 072b53e8809dad343b43a111e6f665b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceInstances:
-  - {fileID: 868321592}
-  - {fileID: 163180954}
+  fruitThrowerInstances:
+  - {fileID: 1945336818}
+  - {fileID: 163180956}
   eatenHealthyFruitsTMPUGUI: {fileID: 855486352}
   eatenUnhealthyFruitsTMPUGUI: {fileID: 1344496525}
   eatenHealthyFruits: 0
@@ -783,11 +785,11 @@ GameObject:
   - component: {fileID: 850717931}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Destroyer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &850717931
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -803,7 +805,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -869,7 +871,7 @@ Transform:
   m_GameObject: {fileID: 850717930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.34, z: 0}
+  m_LocalPosition: {x: 0, y: -12.13, z: 0}
   m_LocalScale: {x: 3.5741, y: 1, z: 2.0871}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1009,17 +1011,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855486350}
   m_CullTransparentMesh: 1
---- !u!114 &868321592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9036921587205345076, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-  m_PrefabInstance: {fileID: 1276459294185637737}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a654e0c89c8fc4f87f722a5f2c7379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &896142804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1098,7 @@ Transform:
   m_GameObject: {fileID: 896142804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.32}
+  m_LocalPosition: {x: -0.418, y: 0.977, z: -11.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1463,7 +1454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1580567616
 Transform:
   m_ObjectHideFlags: 0
@@ -1617,8 +1608,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.112636, z: 1}
+  m_Center: {x: 0, y: 0.55631906, z: 0}
 --- !u!23 &1817764502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1707,7 +1698,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 1
@@ -1723,9 +1714,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ad5da80b649e84ea75ba99a12e3a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickControlInstance: {fileID: 305804369}
-  audioSource: {fileID: 0}
-  eatSFX: {fileID: 0}
+  gameManagerInstance: {fileID: 305804369}
+  audioSource: {fileID: 1965668183}
+  eatSFX: {fileID: 8300000, guid: 2b78975e7a7d3ec408f30ff128939184, type: 3}
 --- !u!1 &1874062207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1728,6 @@ GameObject:
   - component: {fileID: 1874062208}
   - component: {fileID: 1874062209}
   - component: {fileID: 1874062210}
-  - component: {fileID: 1874062211}
   m_Layer: 0
   m_Name: FruitCollector
   m_TagString: Untagged
@@ -1806,21 +1796,66 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1874062211
+--- !u!1 &1945336816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945336817}
+  - component: {fileID: 1945336818}
+  m_Layer: 0
+  m_Name: Fruit Thrower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1945336817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945336816}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.048, y: 0.66615176, z: -7.2945304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1945336818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874062207}
+  m_GameObject: {fileID: 1945336816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ad5da80b649e84ea75ba99a12e3a84, type: 3}
+  m_Script: {fileID: 11500000, guid: e7c9d71473478564e9df39e27e0999bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickControlInstance: {fileID: 0}
-  audioSource: {fileID: 1965668183}
-  eatSFX: {fileID: 8300000, guid: 5d8aea3781197384abb3d8cdf47e59b2, type: 3}
+  reverseDirection: 0
+  minForceX: 1.5
+  maxForceX: 3.5
+  minForceY: 5
+  maxForceY: 8
+  fruits:
+  - {fileID: 5753083174899602337, guid: eeb323d74626d5342999d1d23ccf5884, type: 3}
+  - {fileID: 8765886867523111179, guid: c504b9b237a524044a4f2c5888927336, type: 3}
+  - {fileID: 3350281680065732549, guid: 51b50859ede86414d810f57ff92193b4, type: 3}
+  - {fileID: 6371896158331595886, guid: 6002f23b344c51c43af30a24fe409a17, type: 3}
+  - {fileID: 3081660087699237626, guid: 73e8d71e8f9547a48ac8329afc01d14f, type: 3}
+  - {fileID: 4103751467945807112, guid: 5fd7b34b33b85264cbd6da6ed26a1541, type: 3}
+  - {fileID: 3002587691192703552, guid: 3a92e22a1efb4b94389317dfcfc4314c, type: 3}
+  - {fileID: 3350281680065732549, guid: 51b50859ede86414d810f57ff92193b4, type: 3}
+  - {fileID: 6371896158331595886, guid: 6002f23b344c51c43af30a24fe409a17, type: 3}
+  stop: 0
 --- !u!1 &1965668181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1898,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2b78975e7a7d3ec408f30ff128939184, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1949,75 +1984,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1276459294185637737
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1760595744199075691, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_Name
-      value: Fruit Thrower
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.048
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.66615176
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.2945304
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8123121541875250288, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036921587205345076, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: fruits.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9036921587205345076, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: fruits.Array.data[7]
-      value: 
-      objectReference: {fileID: 3350281680065732549, guid: 51b50859ede86414d810f57ff92193b4, type: 3}
-    - target: {fileID: 9036921587205345076, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
-      propertyPath: fruits.Array.data[8]
-      value: 
-      objectReference: {fileID: 6371896158331595886, guid: 6002f23b344c51c43af30a24fe409a17, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d0a0b60697ce0c447b85d8eca2416056, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2026,10 +1992,10 @@ SceneRoots:
   - {fileID: 77397277}
   - {fileID: 850717934}
   - {fileID: 745324279}
-  - {fileID: 1276459294185637737}
+  - {fileID: 1945336817}
   - {fileID: 163180955}
   - {fileID: 305804368}
   - {fileID: 388307920}
+  - {fileID: 1965668182}
   - {fileID: 1874062208}
   - {fileID: 1193694850}
-  - {fileID: 1965668182}

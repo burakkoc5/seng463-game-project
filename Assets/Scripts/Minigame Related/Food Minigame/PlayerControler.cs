@@ -10,6 +10,7 @@ public class PlayerControler : MonoBehaviour
 
     void Update()
     {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3.3f, 3.3f), transform.position.y, transform.position.z);
         transform.position += new Vector3(rawInput.x * moveSpeed * Time.deltaTime,0,0);
     }
     
