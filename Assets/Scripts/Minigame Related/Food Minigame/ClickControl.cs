@@ -5,13 +5,12 @@ using UnityEngine;
 public class ClickControl : MonoBehaviour
 {
     [SerializeField] private Force[] forceInstances;
-    [SerializeField] private TextMeshProUGUI eatenHealthyFruitsTMPUGUI;
-    [SerializeField] private TextMeshProUGUI eatenUnhealthyFruitsTMPUGUI;
+    [SerializeField] public TextMeshProUGUI eatenHealthyFruitsTMPUGUI;
+    [SerializeField] public TextMeshProUGUI eatenUnhealthyFruitsTMPUGUI;
     
-    private int eatenHealthyFruits = 0;
-    private int eatenUnhealthyFruits = 0;
+    public int eatenHealthyFruits = 0;
+    public int eatenUnhealthyFruits = 0;
     private bool gameCondition = true; //false = lost, true = won/ongoing
-    
 
     private void Start()
     {
@@ -21,27 +20,28 @@ public class ClickControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && gameCondition)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                if (hit.transform.gameObject.CompareTag("HealthyFruit"))
-                {
-                    Destroy(hit.transform.gameObject);
-                    eatenHealthyFruits++;   
-                    eatenHealthyFruitsTMPUGUI.text = eatenHealthyFruits.ToString();
-                }
-                else if (hit.transform.gameObject.CompareTag("UnhealthyFruit"))
-                {
-                    Destroy(hit.transform.gameObject);
-                    eatenUnhealthyFruits++;
-                    eatenUnhealthyFruitsTMPUGUI.text = eatenUnhealthyFruits.ToString();
-                }
-            }
-        }
+        // if (Input.GetMouseButtonDown(0) && gameCondition)
+        // {
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     RaycastHit hit;
+        //
+        //     if (Physics.Raycast(ray, out hit, 100))
+        //     {
+        //         if (hit.transform.gameObject.CompareTag("HealthyFruit"))
+        //         {
+        //             Destroy(hit.transform.gameObject);
+        //             eatenHealthyFruits++;   
+        //             eatenHealthyFruitsTMPUGUI.text = eatenHealthyFruits.ToString();
+        //         }
+        //         else if (hit.transform.gameObject.CompareTag("UnhealthyFruit"))
+        //         {
+        //             Destroy(hit.transform.gameObject);
+        //             eatenUnhealthyFruits++;
+        //             eatenUnhealthyFruitsTMPUGUI.text = eatenUnhealthyFruits.ToString();
+        //         }
+        //     }
+        //     
+        // }
 
         if (eatenUnhealthyFruits >= 3)
         {

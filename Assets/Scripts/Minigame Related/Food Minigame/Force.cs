@@ -10,6 +10,7 @@ public class Force : MonoBehaviour
     [SerializeField] private float minForceY = 5f;
     [SerializeField] private float maxForceY = 8f;
     [SerializeField] private GameObject[] fruits;
+    
     private Random _random = new Random();
     
     [HideInInspector]
@@ -40,7 +41,6 @@ public class Force : MonoBehaviour
             //         //     banana.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse);
             //         // }
             // }
-            
             GameObject currentFruit = Instantiate(fruits[randomFruitIndex], transform.position, Quaternion.identity);
             float randomForceX = (float) _random.NextDouble() * (maxForceX - minForceX) + minForceX;
             float randomForceY = (float) _random.NextDouble() * (maxForceY - minForceY) + minForceY;
