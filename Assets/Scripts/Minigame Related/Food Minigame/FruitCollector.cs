@@ -7,7 +7,6 @@ namespace Minigame_Related.Food_Minigame
         [SerializeField] private GameManager gameManagerInstance;
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip eatSFX;
-
     
         private void OnTriggerEnter(Collider other)
         {
@@ -27,9 +26,7 @@ namespace Minigame_Related.Food_Minigame
                     gameManagerInstance.eatenUnhealthyFruits++;
                     gameManagerInstance.eatenUnhealthyFruitsTMPUGUI.text = gameManagerInstance.eatenUnhealthyFruits.ToString();
                 }
-                
             }
         }
-    
     }
 }
