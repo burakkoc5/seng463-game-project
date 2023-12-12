@@ -10,6 +10,7 @@ TagManager:
   - UnhealthyFruit
   - Destroyer
   - QuizInteraction
+  - Interactable
   layers:
   - Default
   - TransparentFX

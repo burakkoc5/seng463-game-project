@@ -29,9 +29,20 @@ public class SurvivalManager : MonoBehaviour
 
     private void Start()
     {
-        _currentAcademy = _maxAcademy;
-        _currentBasicNeed = _maxBasicNeed;
-        _currentSocial = _maxSocial;
+        Singleton.Instance.isPlayerPlayedUniversityAtLeastOnce = true;
+        
+        if (Singleton.Instance.isPlayerPlayedUniversityAtLeastOnce)
+        {
+            _currentAcademy = _maxAcademy;
+            _currentBasicNeed = _maxBasicNeed;
+            _currentSocial = _maxSocial;
+        }
+        else
+        {
+            _currentAcademy = Singleton.Instance.currentAcademy;
+            _currentBasicNeed = Singleton.Instance.currentBasicNeed;
+            _currentSocial = Singleton.Instance.currentSocial;
+        }
     }
 
     private void Update()
@@ -39,6 +50,10 @@ public class SurvivalManager : MonoBehaviour
         _currentAcademy -= _academyDepletionRate * Time.deltaTime;
         _currentBasicNeed -= _basicNeedDepletionRate * Time.deltaTime;
         _currentSocial -= _socialDepletionRate * Time.deltaTime;
+        
+        Singleton.Instance.currentAcademy = _currentAcademy;
+        Singleton.Instance.currentBasicNeed = _currentBasicNeed;
+        Singleton.Instance.currentSocial = _currentSocial;
 
         if (_currentAcademy <= 0 || _currentBasicNeed <= 0 || _currentSocial <= 0)
         {

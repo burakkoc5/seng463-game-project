@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace Minigame_Related.Food_Minigame
@@ -38,10 +39,19 @@ namespace Minigame_Related.Food_Minigame
 
         private void DisplayResults()
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             int percentage = (int) ((double)eatenHealthyFruits / (eatenHealthyFruits+eatenUnhealthyFruits) * 100);;
             scorePercentageTMPUGUI.text = percentage + "%";
             //TODO: display basic need gain info
+            Singleton.Instance.currentBasicNeed += 50;
             resultPanel.SetActive(true);
+        }
+
+        public void loadUniversityScene()
+        {
+            Cursor.visible = false;
+            SceneManager.LoadScene("University");
         }
     }
 }

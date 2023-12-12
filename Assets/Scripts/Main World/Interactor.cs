@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 interface IInteractable
@@ -10,42 +7,45 @@ interface IInteractable
 
 public class Interactor : MonoBehaviour
 {
-    private Transform InteractorSource;
-    public float InteractRange;
-    [SerializeField] GameObject followCam;
+    //private Transform interactorSource;
     private Transform cameraTransform;
+    public float interactRange;
+    
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject interactionCrosshair;
 
     private void Start()
     {
-         cameraTransform = Camera.main.transform;
-        InteractorSource =followCam.GetComponent<Transform>();
+        if (Camera.main != null) 
+            cameraTransform = Camera.main.transform;
+        //interactorSource = GetComponent<Transform>();
     }
 
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.E))
-         {
-             Debug.Log("Pressed E");
-             
-            //Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
-            //Debug.DrawRay(InteractorSource.position, InteractorSource.forward, Color.green);
-            
-            Ray r = new Ray(cameraTransform.position,cameraTransform.forward);
-            Debug.DrawRay(cameraTransform.position,cameraTransform.forward, Color.green);
-            
-            if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+        //Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+        //Debug.DrawRay(InteractorSource.position, InteractorSource.forward, Color.green);
+
+        Ray r = new Ray(cameraTransform.position, cameraTransform.forward);
+        Debug.DrawRay(cameraTransform.position, cameraTransform.forward, Color.green);
+
+        if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
+        {
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj) && (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
             {
-                //Print all gameobjects that are hit by the raycast
-                //Debug.Log(hitInfo.collider.gameObject.name);
-                
-                Debug.Log("Inside of second if statement");
-                
-                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-                {
-                    Debug.Log("Inside of third if statement");
-                    interactObj.Interact();
-                }
+                interactObj.Interact();
             }
-         }
+            
+            if (hitInfo.collider.gameObject.CompareTag("Interactable"))
+            {
+                crosshair.SetActive(false);
+                interactionCrosshair.SetActive(true);
+            }
+            else
+            {
+                crosshair.SetActive(true);
+                interactionCrosshair.SetActive(false);
+            }
+        }
     }
 }
