@@ -29,19 +29,23 @@ public class SurvivalManager : MonoBehaviour
 
     private void Start()
     {
-        Singleton.Instance.isPlayerPlayedUniversityAtLeastOnce = true;
+        //To lock the cursor after the minigames
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
-        if (Singleton.Instance.isPlayerPlayedUniversityAtLeastOnce)
+        if (!Singleton.isPlayerPlayedUniversityAtLeastOnce)
         {
             _currentAcademy = _maxAcademy;
             _currentBasicNeed = _maxBasicNeed;
             _currentSocial = _maxSocial;
+            Singleton.isPlayerPlayedUniversityAtLeastOnce = true;
         }
         else
         {
-            _currentAcademy = Singleton.Instance.currentAcademy;
-            _currentBasicNeed = Singleton.Instance.currentBasicNeed;
-            _currentSocial = Singleton.Instance.currentSocial;
+            Debug.Log("Player played university at least once.");
+            _currentAcademy = Singleton.currentAcademy;
+            _currentBasicNeed = Singleton.currentBasicNeed;
+            _currentSocial = Singleton.currentSocial;
         }
     }
 
@@ -51,9 +55,9 @@ public class SurvivalManager : MonoBehaviour
         _currentBasicNeed -= _basicNeedDepletionRate * Time.deltaTime;
         _currentSocial -= _socialDepletionRate * Time.deltaTime;
         
-        Singleton.Instance.currentAcademy = _currentAcademy;
-        Singleton.Instance.currentBasicNeed = _currentBasicNeed;
-        Singleton.Instance.currentSocial = _currentSocial;
+        Singleton.currentAcademy = _currentAcademy;
+        Singleton.currentBasicNeed = _currentBasicNeed;
+        Singleton.currentSocial = _currentSocial;
 
         if (_currentAcademy <= 0 || _currentBasicNeed <= 0 || _currentSocial <= 0)
         {

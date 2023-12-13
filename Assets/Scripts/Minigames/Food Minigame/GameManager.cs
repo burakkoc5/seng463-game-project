@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Minigame_Related.Food_Minigame
 {
@@ -43,8 +42,10 @@ namespace Minigame_Related.Food_Minigame
             Cursor.lockState = CursorLockMode.None;
             int percentage = (int) ((double)eatenHealthyFruits / (eatenHealthyFruits+eatenUnhealthyFruits) * 100);;
             scorePercentageTMPUGUI.text = percentage + "%";
-            //TODO: display basic need gain info
-            Singleton.Instance.currentBasicNeed += 50;
+            basicNeedGainInfoTMPUGUI.text = "You have gained " +  (percentage * 40) / 100 + " basic need point.";
+            Singleton.currentBasicNeed += percentage * 40;
+            if(Singleton.currentBasicNeed >= 100) //To prevent exceeding 100
+                Singleton.currentBasicNeed = 100;
             resultPanel.SetActive(true);
         }
 

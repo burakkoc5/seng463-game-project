@@ -4,21 +4,19 @@ public class Singleton : MonoBehaviour
 {
     public static Singleton Instance { get; private set; }
     
-    public float currentAcademy;
-    public float currentBasicNeed;
-    public float currentSocial;
-    [HideInInspector] public bool isPlayerPlayedUniversityAtLeastOnce = false;
+    public static float currentAcademy;
+    public static float currentBasicNeed;
+    public static float currentSocial;
+    [HideInInspector] public static bool isPlayerPlayedUniversityAtLeastOnce = false;
     
-    private void Awake() 
-    { 
-        // If there is an instance, and it's not me, delete myself.
-        if (Instance != null && Instance != this) 
-        { 
-            Destroy(this); 
-        } 
-        else 
-        { 
-            Instance = this; 
-        } 
+    private static bool isInstatiatedBefore = false; // To prevent duplication of Singleton game object (Singleton Pattern)
+    
+    void Start()
+    {
+        if(!isInstatiatedBefore) //Singleton Pattern
+        {
+            DontDestroyOnLoad(this);
+            isInstatiatedBefore = true;
+        }
     }
 }
