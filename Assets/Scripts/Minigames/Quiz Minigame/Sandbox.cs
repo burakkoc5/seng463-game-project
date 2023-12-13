@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class Sandbox : MonoBehaviour
@@ -12,6 +13,11 @@ public class Sandbox : MonoBehaviour
     private string winningCode = "GBRBGBBRBBRBRGRBBRBRBBGRBG";
     public bool playerWin;
     public bool submitButtonClicked;
+    [SerializeField] GameObject resultPanel;
+    [SerializeField] TextMeshProUGUI infoText;
+    [SerializeField] TextMeshProUGUI resultText;
+    [SerializeField] TextMeshProUGUI gainInfoText;
+    [SerializeField] private TextMeshProUGUI quizTypeInfoText;
 
     private void Start()
     {
@@ -39,13 +45,37 @@ public class Sandbox : MonoBehaviour
             {
                 timerScript.stopTimer = true;
                 playerWin = true;
-                winText.SetActive(true);
+                resultText.text = "You Win!";
+                resultText.color = Color.green;
+                infoText.text = "You have passed the quiz.";
+                resultPanel.SetActive(true);
+                switch (quizTypeInfoText.text)
+                {
+                    case "1":
+                        gainInfoText.text = "You have gained 40 academy point.";
+                        Singleton.currentAcademy += 40;
+                        if (Singleton.currentAcademy >= 100) //To prevent exceeding 100
+                            Singleton.currentAcademy = 100;
+                        Debug.Log("Added 40 to academy point.");
+                        break;
+                    case "2":
+                        gainInfoText.text = "You have gained 50 academy point.";
+                        Singleton.currentAcademy += 50;
+                        if (Singleton.currentAcademy >= 100) //To prevent exceeding 100
+                            Singleton.currentAcademy = 100;
+                        Debug.Log("Added 50 to academy point.");
+                        break;
+                }
             }
             else
             {
                 timerScript.stopTimer = true;
                 playerWin = false;
-                loseText.SetActive(true);
+                resultText.text = "You Lost!";
+                resultText.color = Color.red;
+                infoText.text = "You could not pass the quiz.";
+                gainInfoText.text = "You could not gain any academy point.";
+                resultPanel.SetActive(true);
             }
         }
     }
@@ -60,12 +90,12 @@ public class Sandbox : MonoBehaviour
 
     private void setWinCode(string sceneName)
     {
-        //Set winning code based on the minigame version
-        if (sceneName.Contains("v1"))
+        //Set winning code based on the quiz type info text
+        if (quizTypeInfoText.text.Contains("1"))
         {
             winningCode = "GBRBGBBRBBRBRGRBBRBRBBGRBG";
         }
-        else if (sceneName.Contains("v2"))
+        else if (quizTypeInfoText.text.Contains("2"))
         {
             winningCode = "BGRRGRRBRBBGRBGRBRGBGBRG";
         }
