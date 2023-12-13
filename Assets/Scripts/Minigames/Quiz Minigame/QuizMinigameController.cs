@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
-public class Sandbox : MonoBehaviour
+public class QuizMinigameController : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private GameObject winText;

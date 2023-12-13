@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class Timer : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TMP_InputField inputField;
     [SerializeField] GameObject loseText;
-    [SerializeField] Sandbox sandboxScript;
+    [FormerlySerializedAs("sandboxScript")] [SerializeField] QuizMinigameController quizMinigameControllerScript;
     [SerializeField] GameObject resultPanel;
     [SerializeField] TextMeshProUGUI infoText;
     [SerializeField] TextMeshProUGUI resultText;
@@ -42,7 +43,7 @@ public class Timer : MonoBehaviour
     {
         timerText.text = "0";
         inputField.interactable = false;
-        sandboxScript.playerWin = false;
+        quizMinigameControllerScript.playerWin = false;
         resultText.text = "You Lost!";
         resultText.color = Color.red;
         infoText.text = "You could not pass the quiz.";
