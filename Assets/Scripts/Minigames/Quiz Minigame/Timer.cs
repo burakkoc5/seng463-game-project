@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TMP_InputField inputField;
     [SerializeField] GameObject loseText;
-    [FormerlySerializedAs("sandboxScript")] [SerializeField] QuizMinigameController quizMinigameControllerScript;
+    [FormerlySerializedAs("quizMinigameControllerScript")] [FormerlySerializedAs("sandboxScript")] [SerializeField] QuizMinigameManager quizMinigameManagerScript;
     [SerializeField] GameObject resultPanel;
     [SerializeField] TextMeshProUGUI infoText;
     [SerializeField] TextMeshProUGUI resultText;
@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
     {
         timerText.text = "0";
         inputField.interactable = false;
-        quizMinigameControllerScript.playerWin = false;
+        quizMinigameManagerScript.playerWin = false;
         resultText.text = "You Lost!";
         resultText.color = Color.red;
         infoText.text = "You could not pass the quiz.";
