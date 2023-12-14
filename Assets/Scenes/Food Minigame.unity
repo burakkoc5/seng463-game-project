@@ -286,7 +286,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.78
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ad5da80b649e84ea75ba99a12e3a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerInstance: {fileID: 305804369}
+  foodMinigameManagerInstance: {fileID: 305804369}
   audioSource: {fileID: 1965668183}
   eatSFX: {fileID: 8300000, guid: 2b78975e7a7d3ec408f30ff128939184, type: 3}
 --- !u!65 &161615197
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ad5da80b649e84ea75ba99a12e3a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerInstance: {fileID: 305804369}
+  foodMinigameManagerInstance: {fileID: 305804369}
   audioSource: {fileID: 1965668183}
   eatSFX: {fileID: 8300000, guid: 2b78975e7a7d3ec408f30ff128939184, type: 3}
 --- !u!1 &1821081157
