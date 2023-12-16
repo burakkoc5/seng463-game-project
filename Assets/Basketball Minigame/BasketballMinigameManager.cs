@@ -6,6 +6,8 @@ public class BasketballMinigameManager : MonoBehaviour
     [SerializeField] private Rigidbody basketballRigidbody;
     [SerializeField] private GameObject basketballPrefab;
     [SerializeField] private GameObject stick;
+    public bool gameOver = false; //false = ongoing, true = won/lost
+    public int score = 0;
     
     IEnumerator InstantiateNewBall()
     {

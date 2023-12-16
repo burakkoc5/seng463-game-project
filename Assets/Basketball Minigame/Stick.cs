@@ -13,13 +13,16 @@ public class Stick : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // If the player presses the space key
+        //TODO: Speed up the stick when the player presses the space key
+        if (Input.GetKeyDown(KeyCode.Space) && !basketballMinigameManagerInstance.gameOver) // If the player presses the space key
         {
             if (hitGreen)
             {
                 floaterInstance.enabled = false; // Disable the floater
                 basketballMinigameManagerInstance.throwBall(0, 40f, 30f);
                 this.enabled = false; // Disable this script
+                basketballMinigameManagerInstance.score++;
+                GetComponent<Floater>().frequency *= 1.2f; // Speed up the stick when the player scores
                 Debug.Log("Success!");
             }
             else if (hitUpperRed)
