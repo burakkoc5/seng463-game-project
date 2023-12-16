@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25451612, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.12616038, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -595,7 +595,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -49.776173, y: 0.029968262}
+  m_Offset: {x: -49.776173, y: -0.0720253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -606,7 +606,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100.552345, y: 99.04498}
+  m_Size: {x: 100.552345, y: 99.84945}
   m_EdgeRadius: 0
 --- !u!1 &761490927
 GameObject:
@@ -716,7 +716,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -50.00336, y: -0.056829453}
+  m_Offset: {x: -50.00336, y: 0.03136635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -727,7 +727,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100.11028, y: 99.74855}
+  m_Size: {x: 100.11028, y: 99.92494}
   m_EdgeRadius: 0
 --- !u!1 &852929823
 GameObject:
@@ -868,7 +868,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.082611084, y: 0.9296112}
+  m_Offset: {x: -0.082611084, y: 1.1903601}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -879,7 +879,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 99.95447, y: 96.97989}
+  m_Size: {x: 99.95447, y: 61.017868}
   m_EdgeRadius: 0
 --- !u!50 &852929832
 Rigidbody2D:
