@@ -45,6 +45,9 @@ public class BasketballTimer : MonoBehaviour
         scoredBasketsTMPUGUI.text = basketballMinigameManagerInstance.score.ToString();
         socializeGainInfoTMPUGUI.text = "You have gained " + (basketballMinigameManagerInstance.score * 2) + " socialize point.";
         resultPanel.SetActive(true);
+        Singleton.currentSocial += basketballMinigameManagerInstance.score * 2;
+        if(Singleton.currentSocial >= 100) //To prevent exceeding 100
+            Singleton.currentSocial = 100;
     }
     
     public void loadUniversityScene()
