@@ -21,6 +21,9 @@ public class Interaction : MonoBehaviour, IInteractable
             case "SocializeLoader":
                 SceneManager.LoadScene("Socialize Minigame");
                 break;
+            case "SocializeLoader2":
+                SceneManager.LoadScene("Basketball");
+                break;
         }
     }
 }
