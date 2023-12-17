@@ -40,7 +40,7 @@ namespace Minigame_Related.Food_Minigame
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            int percentage = (int) ((double)eatenHealthyFruits / (eatenHealthyFruits+eatenUnhealthyFruits) * 100);;
+            int percentage = (int) ((double)eatenHealthyFruits / (eatenHealthyFruits+eatenUnhealthyFruits) * 100);
             scorePercentageTMPUGUI.text = percentage + "%";
             basicNeedGainInfoTMPUGUI.text = "You have gained " +  (percentage * 40) / 100 + " basic need point.";
             Singleton.currentBasicNeed += percentage * 40;
