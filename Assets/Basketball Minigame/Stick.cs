@@ -28,6 +28,7 @@ public class Stick : MonoBehaviour
                 Debug.Log("Force : " + randomX + " " + randomY + " " + 30f);
                 this.enabled = false; // Disable this script
                 basketballMinigameManagerInstance.scoredBasketsTMPUGUI.text = (++basketballMinigameManagerInstance.score).ToString();
+                basketballMinigameManagerInstance.threwBalls++;
                 GetComponent<Floater>().frequency *= 1.2f; // Speed up the stick when the player scores
             }
             else if (hitUpperRed)
@@ -38,6 +39,7 @@ public class Stick : MonoBehaviour
                 basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f);
                 Debug.Log("Force : " + randomX + " " + randomY + " " + 30f);
                 this.enabled = false; // Disable this script
+                basketballMinigameManagerInstance.threwBalls++;
                 GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
             }
             else if (hitLowerRed)
@@ -47,6 +49,7 @@ public class Stick : MonoBehaviour
                 int randomY = random.Next(15, 25);
                 basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f);
                 Debug.Log("Force : " + randomX + " " + randomY + " " + 30f);
+                basketballMinigameManagerInstance.threwBalls++;
                 GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
                 this.enabled = false; // Disable this script
             }

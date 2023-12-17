@@ -11,6 +11,7 @@ public class BasketballMinigameManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI scoredBasketsTMPUGUI;
     public bool gameOver = false; //false = ongoing, true = won/lost
     public int score = 0;
+    public int threwBalls = 0;
     
     IEnumerator InstantiateNewBall()
     {

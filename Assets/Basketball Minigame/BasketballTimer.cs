@@ -10,6 +10,7 @@ public class BasketballTimer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI scoredBasketsTMPUGUI;
     [SerializeField] private TextMeshProUGUI socializeGainInfoTMPUGUI;
+    [SerializeField] private TextMeshProUGUI basicNeedLossInfoTMPUGUI;
     [SerializeField] private BasketballMinigameManager basketballMinigameManagerInstance;
     [SerializeField] private GameObject resultPanel;
     public bool stopTimer;
@@ -44,10 +45,14 @@ public class BasketballTimer : MonoBehaviour
         stopTimer = true;
         scoredBasketsTMPUGUI.text = basketballMinigameManagerInstance.score.ToString();
         socializeGainInfoTMPUGUI.text = "You have gained " + (basketballMinigameManagerInstance.score * 2) + " socialize point.";
+        basicNeedLossInfoTMPUGUI.text = "You have lost " + (basketballMinigameManagerInstance.threwBalls * 2) + " basic need points. Because you have thrown " + basketballMinigameManagerInstance.threwBalls + " balls.";
         resultPanel.SetActive(true);
         Singleton.currentSocial += basketballMinigameManagerInstance.score * 2;
+        Singleton.currentBasicNeed -= basketballMinigameManagerInstance.threwBalls * 2;
         if(Singleton.currentSocial >= 100) //To prevent exceeding 100
             Singleton.currentSocial = 100;
+        if(Singleton.currentBasicNeed <= 0) //To prevent going below 0
+            Singleton.currentBasicNeed = 0;
     }
     
     public void loadUniversityScene()
