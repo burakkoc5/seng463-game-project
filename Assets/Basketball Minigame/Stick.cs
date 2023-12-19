@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = System.Random;
 
@@ -54,6 +55,11 @@ public class Stick : MonoBehaviour
                 this.enabled = false; // Disable this script
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log("Upper Red:" + hitUpperRed + " Lower Red:" + hitLowerRed + " Green:" + hitGreen);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
