@@ -1,4 +1,5 @@
 using StarterAssets;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,7 +22,9 @@ public class SurvivalManager : MonoBehaviour
     [SerializeField] private float _socialDepletionRate; //Rate at which the social depletes
     private float _currentSocial; //Current amount of social the player has
     
-    public static UnityAction OnPlayerLost; //Event to be called when the player loses
+    [SerializeField] private GameObject _gameOverPanel; //Panel to show the game over screen
+    [SerializeField] private TextMeshProUGUI resultText; //Text to show the result of the game
+    [SerializeField] private TextMeshProUGUI infoText; //Text to show the result of the game
 
     private void Start()
     {
@@ -57,7 +60,12 @@ public class SurvivalManager : MonoBehaviour
 
         if (_currentAcademy <= 0 || _currentBasicNeed <= 0 || _currentSocial <= 0) //Checks if the player has lost
         {
-            OnPlayerLost?.Invoke(); //Invokes the OnPlayerLost event
+            Cursor.lockState = CursorLockMode.None; //Unlocks the cursor
+            Cursor.visible = true; //Shows the cursor
+            resultText.text = "You lost!"; //Sets the result text to show that the player has lost
+            resultText.color = Color.red; //Sets the result text color to red
+            infoText.text = "You could not graduate from the university. You can try again by pressing the button below."; //Sets the info text to show that the player has lost
+            _gameOverPanel.SetActive(true); //Enables the game over panel
             _currentAcademy = 0; //Sets the current academy to 0
             _currentBasicNeed = 0; //Sets the current basic need to 0
             _currentSocial = 0; //Sets the current social to 0
@@ -83,5 +91,14 @@ public class SurvivalManager : MonoBehaviour
         {
             _currentBasicNeed = _maxBasicNeed;
         }
+    }
+    
+    public void ReloadGame() //Method to reload the game
+    {
+        Singleton.isPlayerPlayedUniversityAtLeastOnce = false; //Sets the isPlayerPlayedUniversityAtLeastOnce to false
+        Singleton.currentAcademy = _maxAcademy; //Sets the current academy to the max academy
+        Singleton.currentBasicNeed = _maxBasicNeed; //Sets the current basic need to the max basic need
+        Singleton.currentSocial = _maxSocial; //Sets the current social to the max social
+        UnityEngine.SceneManagement.SceneManager.LoadScene("University"); //Reloads the scene
     }
 }

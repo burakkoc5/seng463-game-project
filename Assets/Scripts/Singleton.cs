@@ -8,6 +8,7 @@ public class Singleton : MonoBehaviour
     public static float currentAcademy; //Current academy points of the player
     public static float currentBasicNeed; //Current basic need points of the player
     public static float currentSocial; //Current social points of the player
+    public static float universityTimerSeconds; //Current time for university 
     public static bool isPlayerPlayedUniversityAtLeastOnce = false; //Boolean to check if the player played the university scene at least once
     private static bool isInstatiatedBefore = false; // To prevent duplication of Singleton game object (Singleton Pattern)
     
