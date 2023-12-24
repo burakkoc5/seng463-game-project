@@ -53,16 +53,12 @@ public class QuizMinigameManager : MonoBehaviour
                 {
                     case "1":
                         gainInfoText.text = "You have gained 40 academy point.";
-                        Singleton.currentAcademy += 40;
-                        if (Singleton.currentAcademy >= 100) //To prevent exceeding 100
-                            Singleton.currentAcademy = 100;
+                        Singleton.increaseCurrentAcademy(40);
                         Debug.Log("Added 40 to academy point.");
                         break;
                     case "2":
                         gainInfoText.text = "You have gained 50 academy point.";
-                        Singleton.currentAcademy += 50;
-                        if (Singleton.currentAcademy >= 100) //To prevent exceeding 100
-                            Singleton.currentAcademy = 100;
+                        Singleton.increaseCurrentAcademy(50);
                         Debug.Log("Added 50 to academy point.");
                         break;
                 }

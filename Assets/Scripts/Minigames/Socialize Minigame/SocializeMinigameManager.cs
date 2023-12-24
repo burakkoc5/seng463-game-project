@@ -69,10 +69,7 @@ public class SocializeMinigameManager : MonoBehaviour
             int percentage = (int) ((double)correctAnswers / (correctAnswers+wrongAnswers) * 100);
             scorePercentageTMPUGUI.text = percentage + "%";
             socializeGainInfoTMPUGUI.text = "You have gained " +  (percentage * 40) / 100 + " basic need point.";
-            Singleton.currentSocial += percentage * 40;
-            //TODO: Create a setter method for the currents in Singleton.cs and control the exceeding condition there
-            if(Singleton.currentSocial >= 100) //To prevent exceeding 100
-                Singleton.currentSocial = 100;
+            Singleton.increaseCurrentSocial(percentage * 40);
             resultPanel.SetActive(true);
             yesButton.GetComponent<Button>().interactable = false;
             noButton.GetComponent<Button>().interactable = false;

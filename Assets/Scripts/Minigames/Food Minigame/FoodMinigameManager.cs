@@ -43,9 +43,7 @@ namespace Minigame_Related.Food_Minigame
             int percentage = (int) ((double)eatenHealthyFruits / (eatenHealthyFruits+eatenUnhealthyFruits) * 100);
             scorePercentageTMPUGUI.text = percentage + "%";
             basicNeedGainInfoTMPUGUI.text = "You have gained " +  (percentage * 40) / 100 + " basic need point.";
-            Singleton.currentBasicNeed += percentage * 40;
-            if(Singleton.currentBasicNeed >= 100) //To prevent exceeding 100
-                Singleton.currentBasicNeed = 100;
+            Singleton.increaseCurrentBasicNeed(percentage * 40);
             resultPanel.SetActive(true);
         }
 

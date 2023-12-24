@@ -47,12 +47,8 @@ public class BasketballTimer : MonoBehaviour
         socializeGainInfoTMPUGUI.text = "You have gained " + (basketballMinigameManagerInstance.score * 2) + " socialize point.";
         basicNeedLossInfoTMPUGUI.text = "You have lost " + (basketballMinigameManagerInstance.threwBalls * 2) + " basic need points. Because you have thrown " + basketballMinigameManagerInstance.threwBalls + " balls.";
         resultPanel.SetActive(true);
-        Singleton.currentSocial += basketballMinigameManagerInstance.score * 2;
-        Singleton.currentBasicNeed -= basketballMinigameManagerInstance.threwBalls * 2;
-        if(Singleton.currentSocial >= 100) //To prevent exceeding 100
-            Singleton.currentSocial = 100;
-        if(Singleton.currentBasicNeed <= 0) //To prevent going below 0
-            Singleton.currentBasicNeed = 0;
+        Singleton.increaseCurrentSocial(basketballMinigameManagerInstance.score * 2);
+        Singleton.increaseCurrentBasicNeed(-basketballMinigameManagerInstance.threwBalls * 2);
     }
     
     public void loadUniversityScene()
