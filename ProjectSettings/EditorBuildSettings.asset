@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Food Minigame.unity
     guid: 8ba2474df8ef00044b20cf6e4bb4072d
   - enabled: 1
-    path: Assets/Scenes/Minigame v1.unity
+    path: Assets/Scenes/Quiz Minigame 1.unity
     guid: a43522675a675a441938873487d74efa
   - enabled: 1
-    path: Assets/Scenes/Minigame v2.unity
+    path: Assets/Scenes/Quiz Minigame 2.unity
     guid: 870a40d0dcc4c11489b6308395571c29
   - enabled: 1
     path: Assets/Scenes/Socialize Minigame.unity
@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/University.unity
     guid: 91a83cb0346579444b6153b86608aa78
   - enabled: 1
-    path: Assets/Scenes/Basketball.unity
+    path: Assets/Scenes/Basketball Minigame.unity
     guid: 354b730ef32fd1946a1f11b0c12a137a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

@@ -11,10 +11,10 @@ public class Interaction : MonoBehaviour, IInteractable
         switch (gameObject.name) //Switch statement to check which object the player has interacted with
         {
             case "QuizLoader1":
-                SceneManager.LoadScene("Minigame v1");
+                SceneManager.LoadScene("Quiz Minigame 1");
                 break;
             case "QuizLoader2":
-                SceneManager.LoadScene("Minigame v2");
+                SceneManager.LoadScene("Quiz Minigame 2");
                 break;
             case "FoodLoader":
                 SceneManager.LoadScene("Food Minigame");
@@ -23,7 +23,7 @@ public class Interaction : MonoBehaviour, IInteractable
                 SceneManager.LoadScene("Socialize Minigame");
                 break;
             case "SocializeLoader2":
-                SceneManager.LoadScene("Basketball");
+                SceneManager.LoadScene("Basketball Minigame");
                 break;
         }
     }
