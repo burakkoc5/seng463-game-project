@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: of the answers are matched with the answers of the computer.
+  m_text: of the answers are matched with the answers of the other student.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a239efe8886dc34b94254950858285c, type: 2}
   m_sharedMaterial: {fileID: -3397286336797909593, guid: 1a239efe8886dc34b94254950858285c, type: 2}

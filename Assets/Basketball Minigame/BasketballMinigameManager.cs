@@ -9,7 +9,7 @@ public class BasketballMinigameManager : MonoBehaviour
     [SerializeField] private GameObject stick;
     [SerializeField] private GameObject closeUpCamera;
     [SerializeField] public TextMeshProUGUI scoredBasketsTMPUGUI;
-    public bool gameOver = false; //false = ongoing, true = won/lost
+    public bool gameOver = false; //false = ongoing
     public int score = 0;
     public int threwBalls = 0;
     
