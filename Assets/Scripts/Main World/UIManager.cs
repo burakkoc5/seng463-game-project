@@ -1,24 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private SurvivalManager _survivalManager;
-    [SerializeField] private Slider academySlider;
-    [SerializeField] private Slider basicNeedSlider, socialSlider;
+    [SerializeField] private Slider academySlider, basicNeedSlider, socialSlider; //Slider to show the player's basic need and social
 
-    private void FixedUpdate()
+    private void FixedUpdate() //FixedUpdate is used to prevent the sliders from lagging behind
     {
-        // _academySlider.value = _survivalManager.AcademyPercent;
-        // basicNeedSlider.value = _survivalManager.BasicNeedPercent;
-        // socialSlider.value = _survivalManager.SocialPercent;
-        
-        academySlider.value = Singleton.currentAcademy;
-        basicNeedSlider.value = Singleton.currentBasicNeed;
-        socialSlider.value = Singleton.currentSocial;
+        academySlider.value = Singleton.currentAcademy; //Sets the academy slider value to the current academy
+        basicNeedSlider.value = Singleton.currentBasicNeed; //Sets the basic need slider value to the current basic need
+        socialSlider.value = Singleton.currentSocial; //Sets the social slider value to the current social
     }
 }
