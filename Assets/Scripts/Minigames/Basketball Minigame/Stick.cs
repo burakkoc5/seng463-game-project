@@ -14,41 +14,50 @@ public class Stick : MonoBehaviour
     
     void Update()
     {
-        //TODO: Refactor some lines into methods
         if (Input.GetKeyDown(KeyCode.Space) && !basketballMinigameManagerInstance.gameOver) // If the player presses the space key
         {
             Random random = new Random(); //To generate random numbers
             if (hitGreen) // If the player hits the green part of the timing bar
             {
                 floaterInstance.enabled = false; // Disable the floater
+                
                 float randomX = NextFloat(-1.4f, -0.68f); // Generate a random number between -1.4 and -0.68 for X value of the vector
                 int randomY = random.Next(37, 43); // Generate a random number between 37 and 43 for Y value of the vector
                 basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f); // Throw the ball with the generated numbers
                 Debug.Log("Force : " + randomX + " " + randomY + " " + 30f); // Log the force
+                
                 this.enabled = false; // Disable this script to prevent the player from adding a force to current ball again
+                
                 basketballMinigameManagerInstance.scoredBasketsTMPUGUI.text = (++basketballMinigameManagerInstance.score).ToString(); // Increase the score and set the text to show the score
                 basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
+                
                 GetComponent<Floater>().frequency *= 1.2f; // Speed up the stick when the player scores
             }
             else if (hitUpperRed) // If the player hits the upper red part of the timing bar
             {
                 floaterInstance.enabled = false; // Disable the floater 
+                
                 float randomX = NextFloat(-1.88f, -0.68f); // Generate a random number between -1.88 and -0.68 for X value of the vector
                 int randomY = random.Next(45, 55); // Generate a random number between 45 and 55 for Y value of the vector
                 basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f); // Throw the ball with the generated numbers
                 Debug.Log("Force : " + randomX + " " + randomY + " " + 30f); // Log the force
+                
                 this.enabled = false; // Disable this script to prevent the player from adding a force to current ball again
+                
                 basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
                 GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
             }
             else if (hitLowerRed)
             {
                 floaterInstance.enabled = false; // Disable the floater
+                
                 float randomX = NextFloat(-1.88f, -0.68f); // Generate a random number between -1.88 and -0.68 for X value of the vector
                 int randomY = random.Next(15, 25); // Generate a random number between 15 and 25 for Y value of the vector
                 basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f); // Throw the ball with the generated numbers
                 Debug.Log("Force : " + randomX + " " + randomY + " " + 30f); // Log the force
+                
                 this.enabled = false; // Disable this script
+                
                 basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
                 GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
             }
