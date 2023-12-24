@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Destroyer"))
+        if (other.CompareTag("Destroyer")) //If the food hits the destroyer
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //Destroy the food
         }
     }
 }

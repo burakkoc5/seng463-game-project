@@ -1,16 +1,15 @@
 using UnityEngine;
-using Random = System.Random;
+using Random = System.Random; //To use the Random class
 
 public class Stick : MonoBehaviour
 {
-    [SerializeField] BasketballMinigameManager basketballMinigameManagerInstance;
-    
-    private Floater floaterInstance;
-    private bool hitUpperRed, hitLowerRed, hitGreen;
+    [SerializeField] BasketballMinigameManager basketballMinigameManagerInstance; //Instance of the BasketballMinigameManager script
+    private Floater floaterInstance; //Instance of the Floater script
+    private bool hitUpperRed, hitLowerRed, hitGreen; //true = hit, false = not hit
     
     void Start()
     {
-        floaterInstance = GetComponent<Floater>();
+        floaterInstance = GetComponent<Floater>(); //Gets the Floater component
     }
     
     void Update()
@@ -18,52 +17,47 @@ public class Stick : MonoBehaviour
         //TODO: Refactor some lines into methods
         if (Input.GetKeyDown(KeyCode.Space) && !basketballMinigameManagerInstance.gameOver) // If the player presses the space key
         {
-            Random random = new Random();
-            if (hitGreen)
+            Random random = new Random(); //To generate random numbers
+            if (hitGreen) // If the player hits the green part of the timing bar
             {
                 floaterInstance.enabled = false; // Disable the floater
-                float randomX = NextFloat(-1.4f, -0.68f);
-                int randomY = random.Next(37, 43);
-                basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f);
-                Debug.Log("Force : " + randomX + " " + randomY + " " + 30f);
-                this.enabled = false; // Disable this script
-                basketballMinigameManagerInstance.scoredBasketsTMPUGUI.text = (++basketballMinigameManagerInstance.score).ToString();
-                basketballMinigameManagerInstance.threwBalls++;
+                float randomX = NextFloat(-1.4f, -0.68f); // Generate a random number between -1.4 and -0.68 for X value of the vector
+                int randomY = random.Next(37, 43); // Generate a random number between 37 and 43 for Y value of the vector
+                basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f); // Throw the ball with the generated numbers
+                Debug.Log("Force : " + randomX + " " + randomY + " " + 30f); // Log the force
+                this.enabled = false; // Disable this script to prevent the player from adding a force to current ball again
+                basketballMinigameManagerInstance.scoredBasketsTMPUGUI.text = (++basketballMinigameManagerInstance.score).ToString(); // Increase the score and set the text to show the score
+                basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
                 GetComponent<Floater>().frequency *= 1.2f; // Speed up the stick when the player scores
             }
-            else if (hitUpperRed)
+            else if (hitUpperRed) // If the player hits the upper red part of the timing bar
             {
-                floaterInstance.enabled = false; // Disable the floater
-                float randomX = NextFloat(-1.88f, -0.68f);
-                int randomY = random.Next(45, 55);
-                basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f);
-                Debug.Log("Force : " + randomX + " " + randomY + " " + 30f);
-                this.enabled = false; // Disable this script
-                basketballMinigameManagerInstance.threwBalls++;
+                floaterInstance.enabled = false; // Disable the floater 
+                float randomX = NextFloat(-1.88f, -0.68f); // Generate a random number between -1.88 and -0.68 for X value of the vector
+                int randomY = random.Next(45, 55); // Generate a random number between 45 and 55 for Y value of the vector
+                basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f); // Throw the ball with the generated numbers
+                Debug.Log("Force : " + randomX + " " + randomY + " " + 30f); // Log the force
+                this.enabled = false; // Disable this script to prevent the player from adding a force to current ball again
+                basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
                 GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
             }
             else if (hitLowerRed)
             {
                 floaterInstance.enabled = false; // Disable the floater
-                float randomX = NextFloat(-1.88f, -0.68f);
-                int randomY = random.Next(15, 25);
-                basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f);
-                Debug.Log("Force : " + randomX + " " + randomY + " " + 30f);
-                basketballMinigameManagerInstance.threwBalls++;
-                GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
+                float randomX = NextFloat(-1.88f, -0.68f); // Generate a random number between -1.88 and -0.68 for X value of the vector
+                int randomY = random.Next(15, 25); // Generate a random number between 15 and 25 for Y value of the vector
+                basketballMinigameManagerInstance.throwBall(randomX, randomY, 30f); // Throw the ball with the generated numbers
+                Debug.Log("Force : " + randomX + " " + randomY + " " + 30f); // Log the force
                 this.enabled = false; // Disable this script
+                basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
+                GetComponent<Floater>().frequency /= 1.1f; // Slow down the stick when the player scores
             }
         }
     }
-
-    private void FixedUpdate()
+    
+    private void OnTriggerEnter2D(Collider2D other) // If the stick hits the timing bar
     {
-        Debug.Log("Upper Red:" + hitUpperRed + " Lower Red:" + hitLowerRed + " Green:" + hitGreen);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        switch (other.gameObject.name)
+        switch (other.gameObject.name) // Check which part of the timing bar the stick hits
         {
             case "Upper Red":
                 hitUpperRed = true;
@@ -77,9 +71,9 @@ public class Stick : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other) // If the stick leaves the timing bar
     {
-        switch (other.gameObject.name)
+        switch (other.gameObject.name) // Check which part of the timing bar the stick leaves
         {
             case "Upper Red":
                 hitUpperRed = false;
@@ -93,6 +87,7 @@ public class Stick : MonoBehaviour
         }
     }
     
+    //Gotten from https://www.w3schools.blog/c-random-float-between-two-numbers to generate a random float between two numbers
     static float NextFloat(float min, float max){
         Random random = new Random();
         double val = (random.NextDouble() * (max - min) + min);

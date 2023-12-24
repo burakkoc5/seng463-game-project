@@ -1,14 +1,14 @@
 using UnityEngine;
 
+//Singleton Pattern for the player's stats and the connection between the university and the minigames
 public class Singleton : MonoBehaviour
 {
-    public static Singleton Instance { get; private set; }
+    public static Singleton Instance { get; private set; } //Singleton Pattern
     
-    public static float currentAcademy;
-    public static float currentBasicNeed;
-    public static float currentSocial;
-    [HideInInspector] public static bool isPlayerPlayedUniversityAtLeastOnce = false;
-    
+    public static float currentAcademy; //Current academy points of the player
+    public static float currentBasicNeed; //Current basic need points of the player
+    public static float currentSocial; //Current social points of the player
+    public static bool isPlayerPlayedUniversityAtLeastOnce = false; //Boolean to check if the player played the university scene at least once
     private static bool isInstatiatedBefore = false; // To prevent duplication of Singleton game object (Singleton Pattern)
     
     void Start()
@@ -20,7 +20,7 @@ public class Singleton : MonoBehaviour
         }
     }
     
-    public static void increaseCurrentAcademy(float academy)
+    public static void increaseCurrentAcademy(float academy) //Increase or decrease the current academy points
     {
         currentAcademy += academy;
         if(currentAcademy >= 100) //To prevent exceeding 100
@@ -29,7 +29,7 @@ public class Singleton : MonoBehaviour
             currentAcademy = 0;
     }
     
-    public static void increaseCurrentBasicNeed(float basicNeed)
+    public static void increaseCurrentBasicNeed(float basicNeed) //Increase or decrease the current basic need points
     {
         currentBasicNeed += basicNeed;
         if(currentBasicNeed >= 100) //To prevent exceeding 100
@@ -38,7 +38,7 @@ public class Singleton : MonoBehaviour
             currentBasicNeed = 0;
     }
     
-    public static void increaseCurrentSocial(float social)
+    public static void increaseCurrentSocial(float social) //Increase or decrease the current social points
     {
         currentSocial += social;
         if(currentSocial >= 100) //To prevent exceeding 100

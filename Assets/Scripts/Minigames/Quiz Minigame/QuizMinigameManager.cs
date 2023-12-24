@@ -1,27 +1,24 @@
 using UnityEngine;
 using TMPro;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class QuizMinigameManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField inputField;
-    [SerializeField] private GameObject winText;
-    [SerializeField] private GameObject loseText;
-    [SerializeField] Timer timerScript;
-    private string winningCode = "GBRBGBBRBBRBRGRBBRBRBBGRBG";
-    public bool playerWin;
-    public bool submitButtonClicked;
-    [SerializeField] GameObject resultPanel;
-    [SerializeField] TextMeshProUGUI infoText;
-    [SerializeField] TextMeshProUGUI resultText;
-    [SerializeField] TextMeshProUGUI gainInfoText;
-    [SerializeField] private TextMeshProUGUI quizTypeInfoText;
+    [SerializeField] private TMP_InputField inputField; //Input field for the quiz
+    [SerializeField] Timer timerScript; //Timer script
+    private string winningCode; //Winning code for the quiz
+    public bool playerWin; //If the player wins
+    public bool submitButtonClicked; //If the submit button is clicked
+    [SerializeField] GameObject resultPanel; //Result panel
+    [SerializeField] TextMeshProUGUI infoText; //Info text
+    [SerializeField] TextMeshProUGUI resultText; //Result text
+    [SerializeField] TextMeshProUGUI gainInfoText; //Gain info text
+    [SerializeField] private TextMeshProUGUI quizTypeInfoText; //Quiz type info text (invisible text) that shows the quiz type
 
     private void Start()
     {
-        if (inputField != null)
+        if (inputField != null) //If the input field is not null
         {
             // Attach the OnValueChanged event handler to validate and filter input
             inputField.onValueChanged.AddListener(ValidateAndFilterInput);
@@ -29,54 +26,52 @@ public class QuizMinigameManager : MonoBehaviour
             inputField.Select();
             inputField.ActivateInputField();
         }
-
-        string sceneName = SceneManager.GetActiveScene().name;
-
+        
         //Set winning code based on scene name
-        setWinCode(sceneName);
+        setWinCode();
     }
 
     void Update()
     {
         //Check if the player has entered the winning code
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || submitButtonClicked)
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || submitButtonClicked) //If the player presses enter or the submit button is clicked
         {
-            if (inputField.text == winningCode)
+            if (inputField.text == winningCode) //If the player enters the winning code
             {
-                timerScript.stopTimer = true;
-                playerWin = true;
-                resultText.text = "You Win!";
-                resultText.color = Color.green;
-                infoText.text = "You have passed the quiz.";
-                resultPanel.SetActive(true);
-                switch (quizTypeInfoText.text)
+                timerScript.stopTimer = true; //Stop the timer
+                playerWin = true; //Player wins
+                resultText.text = "You Win!"; //Set the result text to "You Win!"
+                resultText.color = Color.green; //Set the result text color to green
+                infoText.text = "You have passed the quiz."; //Set the info text to "You have passed the quiz."
+                resultPanel.SetActive(true); //Display the result panel
+                switch (quizTypeInfoText.text) //Switch the quiz type info text
                 {
-                    case "1":
-                        gainInfoText.text = "You have gained 40 academy point.";
-                        Singleton.increaseCurrentAcademy(40);
-                        Debug.Log("Added 40 to academy point.");
+                    case "1": //If the quiz type is 1
+                        gainInfoText.text = "You have gained 40 academy point."; //Set the gain info text to "You have gained 40 academy point."
+                        Singleton.increaseCurrentAcademy(40); //Increase the academy points by 40
+                        Debug.Log("Added 40 to academy point."); //Log the academy points
                         break;
-                    case "2":
-                        gainInfoText.text = "You have gained 50 academy point.";
-                        Singleton.increaseCurrentAcademy(50);
-                        Debug.Log("Added 50 to academy point.");
+                    case "2": //If the quiz type is 2
+                        gainInfoText.text = "You have gained 50 academy point."; //Set the gain info text to "You have gained 50 academy point."
+                        Singleton.increaseCurrentAcademy(50); //Increase the academy points by 50
+                        Debug.Log("Added 50 to academy point."); //Log the academy points
                         break;
                 }
             }
             else
             {
-                timerScript.stopTimer = true;
-                playerWin = false;
-                resultText.text = "You Lost!";
-                resultText.color = Color.red;
-                infoText.text = "You could not pass the quiz.";
-                gainInfoText.text = "You could not gain any academy point.";
-                resultPanel.SetActive(true);
+                timerScript.stopTimer = true; //Stop the timer
+                playerWin = false; //Player loses
+                resultText.text = "You Lost!"; //Set the result text to "You Lost!"
+                resultText.color = Color.red; //Set the result text color to red
+                infoText.text = "You could not pass the quiz."; //Set the info text to "You could not pass the quiz."
+                gainInfoText.text = "You could not gain any academy point."; //Set the gain info text to "You could not gain any academy point."
+                resultPanel.SetActive(true); //Display the result panel
             }
         }
     }
 
-    private void ValidateAndFilterInput(string text)
+    private void ValidateAndFilterInput(string text) //Validate and filter the input to prevent the player from entering invalid characters 
     {
         // Only allow the characters 'R', 'G', 'B', '\r', '\n', and '\b' to be entered
         string allowedChars = "rgbRGB\r\n\x08";
@@ -84,9 +79,8 @@ public class QuizMinigameManager : MonoBehaviour
         inputField.text = filteredText.ToUpper();
     }
 
-    private void setWinCode(string sceneName)
+    private void setWinCode() //Set winning code based on the quiz type info text
     {
-        //Set winning code based on the quiz type info text
         if (quizTypeInfoText.text.Contains("1"))
         {
             winningCode = "GBRBGBBRBBRBRGRBBRBRBBGRBG";

@@ -1,3 +1,5 @@
+//Gotten from https://www.donovankeith.com/2016/05/making-objects-float-up-down-in-unity/ to make the stick in the basketball minigame float up and down
+
 // Floater v0.0.2
 // by Donovan Keith
 //

@@ -64,6 +64,7 @@ public class SurvivalManager : MonoBehaviour
         } 
     }
     
+    //Not in use in the final game but kept for future additions. (Method for ExperimentalFood.cs)
     public void ReplenishAcademyBasicNeedSocial(float academyAmount, float basicNeedAmount, float socialAmount) //Method to replenish the player's needs
     {
         _currentAcademy += academyAmount; //Adds the academy amount to the current academy
