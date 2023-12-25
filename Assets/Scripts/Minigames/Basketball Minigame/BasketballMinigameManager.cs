@@ -2,6 +2,8 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+//Close up camera logic gotten from https://stackoverflow.com/questions/43234909/how-can-i-make-the-second-camera-to-display-in-the-bottom-right-corner-in-a-smal
+
 public class BasketballMinigameManager : MonoBehaviour
 {
     [SerializeField] private Rigidbody basketballRigidbody; //Rigidbody of the basketball
