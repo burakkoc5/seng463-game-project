@@ -23,8 +23,5 @@ Bite Sound Effect - https://www.youtube.com/watch?v=RlvRyo4ofvM
 ## University
 University - https://assetstore.unity.com/packages/3d/environments/japanese-school-stylized-221256
 
-Student - 
-
 ## Packages
-
 Unity gltFast - https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@5.2/manual/index.html
