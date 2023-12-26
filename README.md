@@ -25,3 +25,5 @@ University - https://assetstore.unity.com/packages/3d/environments/japanese-scho
 
 ## Packages
 Unity gltFast - https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@5.2/manual/index.html
+
+Unity AI Navigation - https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/
