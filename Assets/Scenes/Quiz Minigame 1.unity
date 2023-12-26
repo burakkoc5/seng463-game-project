@@ -1156,8 +1156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1111179414}
-  winText: {fileID: 869013377}
-  loseText: {fileID: 1654261533}
   timerScript: {fileID: 637173769}
   playerWin: 0
   submitButtonClicked: 0
@@ -1181,7 +1179,6 @@ MonoBehaviour:
   targetTime: 20
   timerText: {fileID: 930886959}
   inputField: {fileID: 1111179414}
-  loseText: {fileID: 1654261533}
   quizMinigameManagerScript: {fileID: 637173768}
   resultPanel: {fileID: 249059124}
   infoText: {fileID: 1726042383}
@@ -1699,7 +1696,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a239efe8886dc34b94254950858285c, type: 2}
   m_sharedMaterial: {fileID: -3397286336797909593, guid: 1a239efe8886dc34b94254950858285c, type: 2}
@@ -1726,8 +1723,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

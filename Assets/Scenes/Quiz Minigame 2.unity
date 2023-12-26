@@ -1230,8 +1230,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1476,8 +1476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1111179414}
-  winText: {fileID: 400180964}
-  loseText: {fileID: 175534640}
   timerScript: {fileID: 637173769}
   playerWin: 0
   submitButtonClicked: 0
@@ -1501,7 +1499,6 @@ MonoBehaviour:
   targetTime: 25
   timerText: {fileID: 581104080}
   inputField: {fileID: 1111179414}
-  loseText: {fileID: 175534640}
   quizMinigameManagerScript: {fileID: 637173768}
   resultPanel: {fileID: 1207761786}
   infoText: {fileID: 1780475044}

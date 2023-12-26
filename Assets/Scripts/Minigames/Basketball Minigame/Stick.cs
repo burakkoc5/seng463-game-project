@@ -28,7 +28,8 @@ public class Stick : MonoBehaviour
                 
                 this.enabled = false; // Disable this script to prevent the player from adding a force to current ball again
                 
-                basketballMinigameManagerInstance.scoredBasketsTMPUGUI.text = (++basketballMinigameManagerInstance.score).ToString(); // Increase the score and set the text to show the score
+                // Increase the score and set the text to show the score
+                basketballMinigameManagerInstance.scoredBasketsTMPUGUI.text = (++basketballMinigameManagerInstance.score).ToString(); 
                 basketballMinigameManagerInstance.threwBalls++; // Increase the number of balls thrown
                 
                 GetComponent<Floater>().frequency *= 1.2f; // Speed up the stick when the player scores

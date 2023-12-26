@@ -42,6 +42,7 @@ namespace Minigame_Related.Food_Minigame
                 currentFruit.GetComponent<Rigidbody>().AddForce(forceAmount, ForceMode.Impulse); //Add force to the fruit
         
                 float randomTimeBetweenFruits = _random.Next(1, 2); //Randomize the time between fruits (May not work as intended because of the .Next()?)
+                
                 yield return new WaitForSeconds(randomTimeBetweenFruits); //Wait for the time
         
                 StartCoroutine(ThrowFruit()); //Start throwing fruits again

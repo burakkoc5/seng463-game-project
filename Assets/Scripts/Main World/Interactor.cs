@@ -1,5 +1,7 @@
 using UnityEngine;
 
+//This script inspired from the tutorial https://www.youtube.com/watch?v=K06lVKiY-sY
+
 interface IInteractable //Interface to allow the player to interact with the object
 {
     public void Interact(); //Method to be called when the player interacts with the object
