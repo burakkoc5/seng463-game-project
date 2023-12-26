@@ -47,14 +47,14 @@ public class QuizMinigameManager : MonoBehaviour
                 switch (quizTypeInfoText.text) //Switch the quiz type info text
                 {
                     case "1": //If the quiz type is 1
-                        gainInfoText.text = "You have gained 40 academy point."; //Set the gain info text to "You have gained 40 academy point."
-                        Singleton.increaseCurrentAcademy(40); //Increase the academy points by 40
-                        Debug.Log("Added 40 to academy point."); //Log the academy points
+                        gainInfoText.text = "You have gained 20 academy point."; //Set the gain info text to "You have gained 40 academy point."
+                        Singleton.increaseCurrentAcademy(20); //Increase the academy points by 40
+                        Debug.Log("Added 20 to academy point."); //Log the academy points
                         break;
                     case "2": //If the quiz type is 2
-                        gainInfoText.text = "You have gained 50 academy point."; //Set the gain info text to "You have gained 50 academy point."
-                        Singleton.increaseCurrentAcademy(50); //Increase the academy points by 50
-                        Debug.Log("Added 50 to academy point."); //Log the academy points
+                        gainInfoText.text = "You have gained 30 academy point."; //Set the gain info text to "You have gained 50 academy point."
+                        Singleton.increaseCurrentAcademy(30); //Increase the academy points by 50
+                        Debug.Log("Added 30 to academy point."); //Log the academy points
                         break;
                 }
             }

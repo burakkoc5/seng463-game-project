@@ -45,7 +45,7 @@ public class BasketballTimer : MonoBehaviour
         socializeGainInfoTMPUGUI.text = "You have gained " + (basketballMinigameManagerInstance.score * 2) + " socialize point."; //Sets the text to show the number of socialize points gained
         basicNeedLossInfoTMPUGUI.text = "You have lost " + (basketballMinigameManagerInstance.threwBalls * 2) + " basic need points. Because you have thrown " + basketballMinigameManagerInstance.threwBalls + " balls.";
         resultPanel.SetActive(true); //Enables the result panel
-        Singleton.increaseCurrentSocial(basketballMinigameManagerInstance.score * 2); //Increases the current socialize points
+        Singleton.increaseCurrentSocial(basketballMinigameManagerInstance.score * 1); //Increases the current socialize points
         Singleton.increaseCurrentBasicNeed(-basketballMinigameManagerInstance.threwBalls * 2); //Decreases the current basic need points
     }
     
